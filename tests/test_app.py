@@ -1,7 +1,17 @@
 from fastapi.testclient import TestClient
+import pytest
 import app
 
 client = TestClient(app.app)
+
+
+@pytest.fixture(autouse=True)
+def reset_state():
+    """Reset in-memory stores before each test."""
+    app.news_items.clear()
+    app.issue_cards.clear()
+    app.communities.clear()
+    app.user_communities.clear()
 
 def test_dashboard_initial():
     response = client.get("/dashboard")

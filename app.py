@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Set
 
 app = FastAPI(title="Shibuya Co-creation Dashboard")
@@ -21,7 +21,7 @@ class IssueCard(BaseModel):
     location: str
     perspective: str
     hypothesis: Optional[str] = None
-    kpi: List[str] = []
+    kpi: List[str] = Field(default_factory=list)
 
 class CommunityAction(BaseModel):
     user: str
