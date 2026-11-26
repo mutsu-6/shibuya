@@ -1,7 +1,0 @@
-# AI設定
-USE_OLLAMA=true  # ローカルテスト用（true: Ollama, false: OpenAI）
-OPENAI_API_KEY=your_openai_api_key_here  # 本番用（USE_OLLAMA=falseの時に使用）
-
-# その他の設定
-DEBUG=True
-LOG_LEVEL=INFO 
